@@ -19,16 +19,42 @@
 ## Code Book
  
 ### Data
- 
-The first 2 variables, 'subject' and 'activity',
-can uniquely identify each row of the table. 
-The rest 66 variables, are the averages for some selected features,
-those which contain information on means and standard deviations,
-from the original dataset:
-'[Human Activity Recognition Using Smartphones Dataset Version 1.0](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)'.
- 
+
+The `tidy_data.txt` data file is a text file, containing space-separated values.
+
+The first row contains the names of the variables, which are listed and described in the [Variables](#variables) section, and the following rows contain the values of these variables.
  
 ### Variables
+
+#### Identifiers
+
+- `subject`
+
+	Subject identifier, integer, ranges from 1 to 30.
+
+- `activity`
+
+	Activity identifier, string with 6 possible values: 
+	- `WALKING`: subject was walking
+	- `WALKING_UPSTAIRS`: subject was walking upstairs
+	- `WALKING_DOWNSTAIRS`: subject was walking downstairs
+	- `SITTING`: subject was sitting
+	- `STANDING`: subject was standing
+	- `LAYING`: subject was laying
+ 
+#### Average of measurements
+
+All measurements are floating-point values, normalised and bounded within [-1,1].
+
+Prior to normalisation, acceleration measurements (variables containing `acc`) were made in *g*'s (9.81 m.s⁻²) and gyroscope measurements (variables containing `gyro`) were made in radians per second (rad.s⁻¹).
+
+Magnitudes of three-dimensional signals (variables containing `Magnitude`) were calculated using the Euclidean norm.
+
+The measurements are classified in two domains:
+
+- Time-domain signals (variables prefixed by `t`), resulting from the capture of accelerometer and gyroscope raw signals.
+
+- Frequency-domain signals (variables prefixed by `f`), resulting from the application of a Fast Fourier Transform (FFT) to some of the time-domain signals.
  
 The following table describes all variables of the 'tidy_data' table. 
  
