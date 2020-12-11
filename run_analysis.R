@@ -117,7 +117,7 @@ features <- read.table("./UCI HAR Dataset/features.txt",
 
 # Extracting only the indices of the mean and std features by using regex values 
 # mean() and std()
-extracted_feature_index <- grep("mean\\(\\)|str\\(\\)", 
+extracted_feature_index <- grep("mean\\(\\)|std\\(\\)", 
                            features[[2]])
 
 # Extracting columns for extracted features. Also adding the subject and y value
