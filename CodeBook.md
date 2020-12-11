@@ -3,7 +3,6 @@
  
 ## Table of Contents  
  
-  0. Table of Contents 
   1. Code Book
      - Data 
      - Variables
@@ -46,17 +45,17 @@ Features `subject` and `activity` can be identified as categorical variables as 
  
 #### Average of measurements
 
-All measurements are floating-point values, normalised and bounded within [-1,1].
+ - All measurements are floating-point values, normalised and bounded within [-1,1].
 
-Prior to normalisation, acceleration measurements (variables containing `acc`) were made in *g*'s (9.81 m.s⁻²) and gyroscope measurements (variables containing `gyro`) were made in radians per second (rad.s⁻¹).
+ - Prior to normalisation, acceleration measurements (variables containing `acc`) were made in *g*'s (9.81 m.s⁻²) and gyroscope measurements (variables containing `gyro`) were made in radians per second (rad.s⁻¹).
 
-Magnitudes of three-dimensional signals (variables containing `mag`) were calculated using the Euclidean norm.
+ - Magnitudes of three-dimensional signals (variables containing `mag`) were calculated using the Euclidean norm.
 
-The measurements are classified in two domains:
+ - The measurements are classified in two domains:
 
-- Time-domain signals (variables prefixed by `t`), resulting from the capture of accelerometer and gyroscope raw signals.
+ - Time-domain signals (variables prefixed by `t`), resulting from the capture of accelerometer and gyroscope raw signals.
 
-- Frequency-domain signals (variables prefixed by `f`), resulting from the application of a Fast Fourier Transform (FFT) to some of the time-domain signals.
+ - Frequency-domain signals (variables prefixed by `f`), resulting from the application of a Fast Fourier Transform (FFT) to some of the time-domain signals.
  
 The following table describes all variables of the 'tidy_data' table. 
  
@@ -148,23 +147,23 @@ can be used.
  
 4. Appropriately labels the data set with target variables with descriptive names. 
  
-  1. Extracts the target variable names from 'features.txt'.
-  2. Corrects a typo that exists in some feature names, which is replacing
+  - Extracts the target variable names from 'features.txt'.
+  - Corrects a typo that exists in some feature names, which is replacing
      `BodyBody` that appears instead of `Body`.
-  3. Removes the `()` from feature names.
-  4. Switches the feature names case from `PascalCase` to `kebab-case`.
-  5. Lowercases the feature names.
-  6. Creates a new tidy dataset with the appropriate labels for the variable
+  - Removes the `()` from feature names.
+  - Switches the feature names case from `PascalCase` to `kebab-case`.
+  - Lowercases the feature names.
+  - Creates a new tidy dataset with the appropriate labels for the variable
      names. 
  
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
-  1. Group the tidy data table created in step 4, by `subject` and `activity`. 
-  2. Summarize each variable to find the average for the grouped values. 
-  3. Ungroup the data table. 
-  4. Add descriptive names to the variables of the new tidy data table,
-     by adding the prefix `avg-` in the names of the target feature averages.
-  5. Write the data in a text file in the present working directory,
+  - Group the tidy data table created in step 4, by `subject` and `activity`. 
+  - Summarize each variable to find the average for the grouped values. 
+  - Ungroup the data table. 
+  - Add descriptive names to the variables of the new tidy data table,
+  - by adding the prefix `avg-` in the names of the target feature averages.
+  - Write the data in a text file in the present working directory,
      using the command: 
     
      ```
