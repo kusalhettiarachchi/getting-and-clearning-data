@@ -6,7 +6,7 @@
 #
 #  Please make sure that a folder with name `UCI HAR Dataset` exists in the 
 #  directory. If not, this data-set can be downloaded from the link, 
-#  "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+#  `https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip`
 
 
 # VERSIONING: 
@@ -30,7 +30,7 @@
 # RESULT:   
 #
 #  The result of this script is a tidy data set saved in a file named 
-#  'tidy_data.txt' in the working directory.
+#  `tidy_data.txt` in the working directory.
 #  Load the data set using the command.
 #  tidy_data <- read.table(file  = "tidy_data.txt",
 #                                   header = TRUE, 
@@ -42,7 +42,7 @@
 #                                   comments.char = "", 
 #                                   quote = "")
 #  More details on this data-set can be found at 'CodeBook.md' at the location,
-#  <insert github link here>
+#  `https://github.com/kusalhettiarachchi/getting-and-clearning-data/blob/main/CodeBook.R`
 ################################################################################
 
 ################################################################################
@@ -51,7 +51,7 @@
 if (!dir.exists("UCI HAR Dataset")) {
   stop("Data-set not found! 
        You can donwload it via, 
-       https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+       `https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip`
        Exiting without doing anything.") 
 }
 
