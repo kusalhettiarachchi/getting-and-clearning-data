@@ -27,7 +27,7 @@ can uniquely identify each row of the table.
 The rest 66 variables, are the averages for some selected features,
 those which contain information on means and standard deviations,
 from the original dataset:
-'Human Activity Recognition Using Smartphones Dataset Version 1.0'.
+'[Human Activity Recognition Using Smartphones Dataset Version 1.0](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)'.
  
  
 ### Description of the variables from 'tidy_data'
