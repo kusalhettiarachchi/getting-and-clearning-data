@@ -4,23 +4,21 @@
 ## Table of Contents  
  
   0. Table of Contents 
-  1. Information on 'tidy_data' data table 
-     - Identifiers and averages of features 
-     - Description for the variables of 'tidy_data' 
-     - How to load 'tidy_data' in R
-     - About 'tidy_data' table 
-  2. The process by which the 'tidy_data' table was produced 
-  3. Description of the features on which the averages were based 
-     - information on how the features were produced from the raw data 
-     - information on the collection of raw data 
+  1. Code Book
+     - Data 
+     - Variables
+  2. Transformations
+  3. Study Design
+     - Original Data
+     - Production of features from raw data  
+     - Collection of raw data 
      - About the original data set 
-  4. License 
  
  
 *** 
-## Information on 'tidy_data' data table  
+## Code Book
  
-### Identifiers and averages of features
+### Data
  
 The first 2 variables, 'subject' and 'activity',
 can uniquely identify each row of the table. 
@@ -30,7 +28,7 @@ from the original dataset:
 '[Human Activity Recognition Using Smartphones Dataset Version 1.0](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)'.
  
  
-### Description of the variables from 'tidy_data'
+### Variables
  
 The following table describes all variables of the 'tidy_data' table. 
  
@@ -104,70 +102,10 @@ The following table describes all variables of the 'tidy_data' table.
 |   66  | avg-f-body-gyro-mag-std      | numeric | [-1, 1] | Frequency domain, Average of standard deviations for the magnitude of angular velocity.                   |
 |   67  | avg-f-body-gyro-jerk-mag-mean| numeric | [-1, 1] | Frequency domain, Average of means for the magnitude of jerk, of angular velocity.                        |
 |   68  | avg-f-body-gyro-jerk-mag-std | numeric | [-1, 1] | Frequency domain, Average of standard deviation for the magnitude of jerk, of angular velocity.           |
- 
-  
-### How to load 'tidy_data' data in R 
- 
-It order to load the 'tidy_data' in R correctly,
-use the following command:
- 
-```   
-tidy_data <- read.table(file  = "tidy_data.txt", 
-                                header = TRUE, check.names = FALSE, dec = ".", 
-                                colClasses = c("numeric", "factor", rep("numeric", 66)), 
-                                nrows = 180, comment.char = "", quote = "") 
-``` 
-   
-### About 'tidy_data' table 
 
-This dataset was created for the needs of: 
-
-> Course 3: 'Getting and Cleaning Data', 
-> from 'Data Science Specialization', 
-> by 'Johns Hopkins University', 
-> on Coursera 
->
-> The course is taught by: 
->
->    - Jeff Leek, Phd 
->    - Roger D. Peng, Phd 
->    - Brian Caffo, Phd 
- 
-The data table can be reproduced,
-as all required scripts are available on the Git Hub repository
-[Getting and Cleaning Data Assignment](https://github.com/kusalhettiarachchi/getting-and-clearning-data). 
-Before trying to reproduce it,
-the following notes should be taken into account:
- 
-  - The data was downloaded from the url:
-    "http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones"
-  - The data was then processed by the script 
-    '[run_analysis.R](https://github.com/kusalhettiarachchi/getting-and-clearning-data/blob/main/run_analysis.R)'
-    to create the 'tidy_data' table.
-  - The scripts were executed in RStudio (version  1.4.938)
-  - The library 'dplyr' version 1.0.2 was used.
-  - The output produced by 'R.version' is the following:
- 
-```
-platform       x86_64-pc-linux-gnu         
-arch           x86_64                      
-os             linux-gnu                   
-system         x86_64, linux-gnu           
-status                                     
-major          4                           
-minor          0.3                         
-year           2020                        
-month          10                          
-day            10                          
-svn rev        79318                       
-language       R                           
-version.string R version 4.0.3 (2020-10-10)
-nickname       Bunny-Wunnies Freak Out 
-
-``` 
   
 *** 
-## The process by which the 'tidy_data' table was produced  
+## Transformations  
 
 In order to produce the 'tidy_data' table,
 the script 
@@ -211,7 +149,7 @@ It performs the following tasks:
   3. Removes the () from feature names.
   4. Switches the feature names case from PascalCase to kebab-case.
   5. Lowercases the feature names.
-  3. Creates a new tidy dataset with the appropriate labels for the variable
+  6. Creates a new tidy dataset with the appropriate labels for the variable
      names. 
  
 #### From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
@@ -230,12 +168,25 @@ It performs the following tasks:
      ```
     
 ***
-## Description of the features on which the averages were based 
+## Study Design
+
+### Original Dataset 
  
-### information on how the features were produced from the raw data 
+> Human Activity Recognition Using Smartphones Dataset Version 1.0 
+>  
+> Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto. 
+> Smartlab - Non Linear Complex Systems Laboratory 
+> DITEN - Universit? degli Studi di Genova. 
+> Via Opera Pia 11A, I-16145, Genoa, Italy. 
+> activityrecognition@smartlab.ws 
+> www.smartlab.ws 
  
-The selected features were produced, as it is explained in the
-'features_info.txt' file of the original data set:
+More information about the original data set can be found
+[here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
+ 
+### Production of features from raw data 
+ 
+Quting the 'features_info.txt' file of the original data set:
  
 > The features selected for this database come from the accelerometer and
 gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals
@@ -311,10 +262,9 @@ sample. These are used on the angle() variable:
 > tBodyGyroJerkMean  
 > 
 
-### information on the collection of raw data 
+### Collection of raw data
  
-The raw signals were produced, as it is explained in the 'README.txt' file of
-original data set:
+Quoting the 'README.txt' file of the original data set:
    
 > The experiments have been carried out with a group of 30 volunteers within
 an age bracket of 19-48 years. Each person performed six activities
@@ -344,56 +294,3 @@ and the estimated body acceleration.
 > - A 561-feature vector with time and frequency domain variables. 
 > - Its activity label. 
 > - An identifier of the subject who carried out the experiment. 
- 
-and also it include the following notes: 
-
-> Notes: 
-> 
-> - Features are normalized and bounded within [-1,1]. 
-> - Each feature vector is a row on the text file. 
- 
-
-### About the original dataset 
- 
-The 'tidy_data' table was created by using the following data set: 
- 
-> Human Activity Recognition Using Smartphones Dataset Version 1.0 
->  
-> Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto. 
-> Smartlab - Non Linear Complex Systems Laboratory 
-> DITEN - Universit? degli Studi di Genova. 
-> Via Opera Pia 11A, I-16145, Genoa, Italy. 
-> activityrecognition@smartlab.ws 
-> www.smartlab.ws 
- 
- 
-More information about the original data set can be found
-[here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
- 
- 
-*** 
-### License  
-
-The following is a copy-paste from the 'README.txt' of the original data set
-which I encourage everybody to use.
-
-> Use of this dataset in publications must be acknowledged by referencing the
-following publication [1] 
-> 
-> [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra
-and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a
-Multiclass Hardware-Friendly Support Vector Machine. International Workshop
-of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012 
->
-> This dataset is distributed AS-IS and no responsibility implied or explicit
-can be addressed to the authors or their institutions for its use or misuse.
-Any commercial use is prohibited. 
-> 
-> Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita.
-November 2012.
- 
-***
-
- 
- 
-
