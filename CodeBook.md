@@ -1,9 +1,8 @@
-# CODE BOOK for the 'tidy_data' data table. 
+# CODE BOOK for the project Getting and Cleaning Data. 
 *** 
  
 ## Table of Contents  
  
-  0. Table of Contents 
   1. Code Book
      - Data 
      - Variables
@@ -19,16 +18,44 @@
 ## Code Book
  
 ### Data
- 
-The first 2 variables, 'subject' and 'activity',
-can uniquely identify each row of the table. 
-The rest 66 variables, are the averages for some selected features,
-those which contain information on means and standard deviations,
-from the original dataset:
-'[Human Activity Recognition Using Smartphones Dataset Version 1.0](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)'.
- 
+
+The `tidy_data.txt` data file is a text file, containing space-separated values.
+
+The first row contains the names of the variables, which are listed and described in the [Variables](#variables) section, and the following rows contain the values of these variables.
  
 ### Variables
+
+#### Identifiers
+
+Features `subject` and `activity` can be identified as categorical variables as following.
+
+- `subject`
+
+	Subject identifier, integer, ranges from 1 to 30.
+
+- `activity`
+
+	Activity identifier, string with 6 possible values: 
+	- `WALKING`: subject was walking
+	- `WALKING_UPSTAIRS`: subject was walking upstairs
+	- `WALKING_DOWNSTAIRS`: subject was walking downstairs
+	- `SITTING`: subject was sitting
+	- `STANDING`: subject was standing
+	- `LAYING`: subject was laying
+ 
+#### Average of measurements
+
+ - All measurements are floating-point values, normalised and bounded within [-1,1].
+
+ - Prior to normalisation, acceleration measurements (variables containing `acc`) were made in *g*'s (9.81 m.s⁻²) and gyroscope measurements (variables containing `gyro`) were made in radians per second (rad.s⁻¹).
+
+ - Magnitudes of three-dimensional signals (variables containing `mag`) were calculated using the Euclidean norm.
+
+ - The measurements are classified in two domains:
+
+ - Time-domain signals (variables prefixed by `t`), resulting from the capture of accelerometer and gyroscope raw signals.
+
+ - Frequency-domain signals (variables prefixed by `f`), resulting from the application of a Fast Fourier Transform (FFT) to some of the time-domain signals.
  
 The following table describes all variables of the 'tidy_data' table. 
  
@@ -107,61 +134,37 @@ The following table describes all variables of the 'tidy_data' table.
 *** 
 ## Transformations  
 
-In order to produce the 'tidy_data' table,
+In order to achieve the following transformations,
 the script 
 '[run_analysis.R](https://github.com/kusalhettiarachchi/getting-and-clearning-data/blob/main/run_analysis.R))'
-was created and used. 
-It performs the following tasks: 
+can be used. 
  
-#### Merges the training and the test sets to create one data set with target variables. 
- 
-  1. Binds these files,
-       - UCI HAR Dataset/train/subject_train.txt
-       - UCI HAR Dataset/train/X_train.txt
-       - UCI HAR Dataset/train/y_train.txt.
-      
-  2. Binds these files,
-       - UCI HAR Dataset/test/subject_test.txt
-       - UCI HAR Dataset/test/X_test.txt
-       - UCI HAR Dataset/test/y_test.txt.
-      
-  3. Binds the data frames created for test and train set into one large dataset
-     by rows.
+1. Merges the training and the test sets to create one data set with target variables. 
 
-#### Extracts only the measurements on the mean and standard deviation for each measurement. 
+2. Extracts only the measurements on the mean and standard deviation for each measurement. 
  
-  1. Finds the target features, which are the features with measurements
-     about mean and standard deviation, and extracts them as well as those
-     that indicate the 'subject' and 'activity' and creates a new data table
-     only with the target variables. 
+3. Uses descriptive activity names to name the activities in the data set.
  
-#### Uses descriptive activity names to name the activities in the data set.   
-
-  1. Replace the variable about activity, that contains integers from 1 to 6,
-     with a factor based on levels and labels contained in the 'activity_labels'
-     data file. 
+4. Appropriately labels the data set with target variables with descriptive names. 
  
-#### Appropriately labels the data set with target variables with descriptive names. 
- 
-  1. Extracts the target variable names from 'features.txt'.
-  2. Corrects a typo that exists in some feature names, that is to replace
-     'BodyBody' that appears in the names of some features with just 'Body'.
-  3. Removes the () from feature names.
-  4. Switches the feature names case from PascalCase to kebab-case.
-  5. Lowercases the feature names.
-  6. Creates a new tidy dataset with the appropriate labels for the variable
+  - Extracts the target variable names from 'features.txt'.
+  - Corrects a typo that exists in some feature names, which is replacing
+     `BodyBody` that appears instead of `Body`.
+  - Removes the `()` from feature names.
+  - Switches the feature names case from `PascalCase` to `kebab-case`.
+  - Lowercases the feature names.
+  - Creates a new tidy dataset with the appropriate labels for the variable
      names. 
  
-#### From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
-
-  1. Group the tidy data table created in step 4, by 'subject' and 'activity'. 
-  2. Summarize each variable to find the average for the grouped values. 
-  3. Ungroup the data table. 
-  4. Add descriptive names to the variables of the new tidy data table,
-     by adding the prefix 'avg-' in the names of the target feature averages.
-  5. Write the data in a text file in the present working directory,
-     by the command: 
+  - Group the tidy data table created in step 4, by `subject` and `activity`. 
+  - Summarize each variable to find the average for the grouped values. 
+  - Ungroup the data table. 
+  - Add descriptive names to the variables of the new tidy data table,
+  - by adding the prefix `avg-` in the names of the target feature averages.
+  - Write the data in a text file in the present working directory,
+     using the command: 
     
      ```
      write.table(tidy_data, "tidy_data.txt", row.names = FALSE) 

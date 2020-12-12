@@ -10,9 +10,9 @@ This repository was created for the peer-graded assignment of:
 > by Johns Hopkins University, 
 > on coursera  
 
-and for the main script, 'run_analysis.R' the requirements was that it should
-be able to run, as far as the 'UCI HAR Dataset' is present in the working
-directory and to be able to perform the following 5 steps:
+The transformation script, `run_analysis.R` is able to run, 
+as far as the `UCI HAR Dataset` is present in the working
+directory and performs the following 5 steps:
 
 > 1. Merges the training and the test sets to create one data set. 
 > 2. Extracts only the measurements on the mean and standard deviation for
@@ -32,14 +32,12 @@ This file tries to explain the purpose and the contents of the repository.
  
 ### run_analysis.R 
  
-It is the main script of the repository. 
-As it is described in 'CodeBook.md':
+This script transforms the original `UCI HAR Dataset` to `tidy_data.txt`.
+The code is well commented and self explanatory.
     
 ### tidy_data.txt 
  
-The tidy dataset that was produced by the script 'run_analysis.R',
-which contains the averages of selected features from the original
-'Human Activity Recognition Using Smartphones Dataset Version 1.0'.
+The output of runnig the script `run_analysis.R`.
 The 
 '[CodeBook.md](https://github.com/kusalhettiarachchi/getting-and-clearning-data/blob/main/CodeBook.md)' 
 contains the details about the 'tidy_data' table.
@@ -54,6 +52,5 @@ tidy_data <- read.table(file  = "tidy_data.txt",
  
 ### CodeBook.md 
 
-The code book contains information on the 'tidy_data' table.
-It consists of the following: 
+The code book contains information on the 'tidy_data' dataset, variables included in it, and the orignal dataset.
  
